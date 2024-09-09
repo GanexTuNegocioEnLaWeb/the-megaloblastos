@@ -1,0 +1,26 @@
+---
+import FormSupportUpdate from "../FormSupportUpdate.vue"
+
+// const { name, url, desc, year, materia, parcial, docente } = Astro.props;
+
+const { material, index } = Astro.props
+---
+
+<li class="py-6 px-8 bg-white dark:bg-neutral-800 shadow-md rounded-md" data-aos="fade-up" data-aos-delay={index * 50}>
+    <h3 class="text-xl font-bold uppercase text-neutral-700 dark:text-neutral-50 border-b pb-4">{material.title}</h3>
+    <p class="py-2 font-medium text-neutral-600 dark:text-neutral-300">{material.desc}</p>
+    <div class="flex flex-wrap justify-between item-center py-2">
+        <a class="text-primary underline" target="_blank" href={material.url}>Ver</a>
+        <p class="font-medium text-neutral-600 dark:text-neutral-300">TIPO: {material.type}</p>
+    </div>
+    <FormSupportUpdate client:load material={material} />
+</li>
+
+<!-- id: column.text({ primaryKey: true }), // Clave primaria -->
+    <!-- name: column.text(), // Nombre del material de apoyo -->
+    <!-- url: column.text(), // Url del material de apoyo -->
+    <!-- desc: column.text(), // Descripción del material de apoyo -->
+    <!-- year: column.text(), // Año del material de apoyo
+    materia: column.text(), // Materia del material de apoyo
+    parcial: column.text(), // Parcial del material de apoyo
+    docente: column.text(), // Docente del material de apoyo -->

@@ -1,0 +1,12 @@
+---
+import { SignIn } from "auth-astro/components";
+import { getSession } from "auth-astro/server";
+
+const session = await getSession(Astro.request);
+
+---
+
+<div class="flex gap-4 text-neutral-500 dark:text-neutral-400">
+  { !session?.user ? <SignIn id="sign-in" provider="google" class="hover:underline leading-none hover:text-neutral-800 dark:hover:text-neutral-300">Administrar</SignIn> : <a href="/admin/perfil" class="hover:underline leading-none hover:text-neutral-800 dark:hover:text-neutral-300">Ver perfil <i class="ri-user-line"></i></a> }
+    <!-- { !session?.user ? <a href="/admin" id="sign-in" class="hover:underline leading-none hover:text-neutral-800 dark:hover:text-neutral-300">Administrar</a> : <a href="/admin/perfil" id="sign-in" class="hover:underline leading-none hover:text-neutral-800 dark:hover:text-neutral-300">Ver Perfil <i class="ri-user-line"></i></a>} -->
+</div>

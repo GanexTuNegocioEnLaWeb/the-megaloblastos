@@ -1,0 +1,10 @@
+---
+---
+
+<button data-aos="fade-up" id="back" class="text-primary underline">Volver</button>
+<script is:inline>
+    const back = document.getElementById("back");
+    back.addEventListener("click", () => {
+        window.history.back();
+    });
+</script>
