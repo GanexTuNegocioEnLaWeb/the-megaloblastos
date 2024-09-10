@@ -14,3 +14,13 @@ Somos una asociación civil, autónoma e independiente, sin fines de lucro y al 
 [facebook](https://www.facebook.com/profile.php?id=61564395094002)
 [instagram](https://www.instagram.com/mega_loblastos/?igsh=OGl4NWw3MjQ4Z2lo)
 [tiktok](https://www.instagram.com/mega_loblastos/?igsh=OGl4NWw3MjQ4Z2lo)
+
+------------
+
+<img src="./img-readme/home-megaloblastos.png" />
+
+------------
+
+<img src="./img-readme/home-megaloblastos-dark.png" />
+
+------------
