@@ -6,11 +6,10 @@ import megaloblastosPng from "../assets/megaloblastos.png";
 const years = ["primer", "segundo", "tercer", "cuarto", "quinto"];
 ---
 
-<h3 data-aos="fade-up"
-data-aos-delay="50" class="text-2xl font-bold w-[80dvw] mx-auto max-w-3xl text-neutral-600 dark:text-neutral-300 pb-10 lg:px-10">Materias</h3>
+<h3 class="text-2xl font-bold w-[80dvw] mx-auto max-w-3xl text-neutral-600 dark:text-neutral-300 pb-10 lg:px-10">Materias</h3>
 <section id="section-years" class="w-[80dvw] mx-auto max-w-3xl pb-10 place-items-center grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:px-10">
     {years.map((name, index) => (
-        <a data-aos-delay={(1 + index) * 50} href={`/years/${index + 1}`} class="flex-auto w-full bg-white dark:bg-neutral-800 rounded-md shadow-lg pb-8 pt-24 px-10 hover:scale-105 transition-transform duration-500 group">
+        <a href={`/years/${index + 1}`} class="fade-up-target flex-auto w-full bg-white dark:bg-neutral-800 rounded-md shadow-lg pb-8 pt-24 px-10 hover:scale-105 transition-transform duration-500 group">
             <Image
                 class="w-[5.7rem] h-[5.7rem] object-cover mx-auto"
                 src={megaloblastosPng}
@@ -24,27 +23,3 @@ data-aos-delay="50" class="text-2xl font-bold w-[80dvw] mx-auto max-w-3xl text-n
         </a>
     ))}
 </section>
-
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const updateAOSAttributes = () => {
-        const width = window.innerWidth;
-        const fadeUpTargets = document.querySelectorAll(".fade-up-target");
-  
-        fadeUpTargets.forEach((element) => {
-          if (width >= 768) { // Cambia 768 por el ancho mínimo que consideras para desktop
-            element.setAttribute("data-aos", "fade-up");
-          } else {
-            element.removeAttribute("data-aos");
-          }
-        });
-      };
-  
-      // Ejecutar al cargar la página
-      updateAOSAttributes();
-  
-      // Ejecutar al redimensionar la ventana
-      window.addEventListener("resize", updateAOSAttributes);
-    });
-  </script>
-  

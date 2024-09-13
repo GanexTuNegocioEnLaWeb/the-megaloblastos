@@ -36,9 +36,8 @@ const materialSupports = await db.select().from(SupportMaterials).where(and(eq(S
         <ul class="space-y-4 pt-5 pb-10">
             {
                 materialSupports.length == 0 ? <p class="dark:text-neutral-300" data-aos="fade-up" data-aos-delay="50">No hay material de apoyo, escribenos al 70930853 y haz tu solicitud y en breve estará disponible.</p> :
-                materialSupports.map((material, index) => (
+                materialSupports.map((material) => (
                     <CardRecursos
-                        index={index}
                         material={material}
                     />
                 ))

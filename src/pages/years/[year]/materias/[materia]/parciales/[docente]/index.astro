@@ -13,7 +13,7 @@ const { docente } = Astro.params;
         <HeaderCards text1="Parciales del docente" text2={docente} />
         <BtnBack />
         <ul class="space-y-4 pt-5 pb-10">
-            {[1,2,3].map((item, index) => <CardParcial item={item} index={index}, docente={docente} />)}
+            {[1,2,3].map((item) => <CardParcial item={item} docente={docente} />)}
         </ul>
     </section>
 </Layout>

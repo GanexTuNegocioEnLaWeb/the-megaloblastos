@@ -19,9 +19,9 @@ const reWrite = {
 <Layout title={`${year} año`}>
     <section class="w-[80dvw] mx-auto max-w-2xl">
         <HeaderCards text1="Materias de" text2={`${reWrite[year]} año`} />
-        <a href="/" data-aos="fade-up" class="text-primary underline inline-block">Volver a inicio</a>
+        <a href="/" data-aos="fade-down" class="text-primary underline inline-block">Volver a inicio</a>
         <ul class="space-y-4 pt-5 pb-10">
-            {materiasByYear.map((materia, index) => <CardMateria materia={materia} index={index} />)}
+            {materiasByYear.map((materia) => <CardMateria materia={materia} />)}
         </ul>
     </section>
 </Layout>
