@@ -95,7 +95,7 @@ const createSupportMaterial = async (newSupportMaterial) => {
           name="type"
         >
         <option value="">Seleccione un tipo</option>
-          <option value="otro">Otro</option>  
+          <option value="material de apoyo">Material de apoyo</option>
           <option value="Banco De Pregunta">Banco De Pregunta</option>
         </select>
       </label>

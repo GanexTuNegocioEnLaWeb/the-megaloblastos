@@ -92,8 +92,8 @@ const openEdit = () => {
           class="w-full border outline-none bg-white dark:bg-neutral-800 dark:text-white  rounded-md p-2"
           name="type"
         >
-        <option value="">Seleccione un tipo</option>
-          <option value="otro">Otro</option>  
+          <option value="">Seleccione un tipo</option>
+          <option value="material de apoyo">Material de apoyo</option>
           <option value="Banco De Pregunta">Banco De Pregunta</option>
         </select>
       </label>
