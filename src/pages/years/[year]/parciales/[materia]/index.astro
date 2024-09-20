@@ -16,7 +16,7 @@ const { materia, docente } = Astro.params;
         <HeaderCards text1="Parciales de" text2={materia} />
         <BtnBack />
         <ul class="space-y-4 pt-5 pb-10">
-            {[1,2,3].map((item) => <CardParcial item={item} docente={docente} />)}
+            {[1,2,3].map((item) => <CardParcial item={item} docente={docente} isMultigrupo={true} materia={materia} />)}
              <!-- Aqui falta componetizar -->
             { 
                 materia === "Cirugía 2" && (
