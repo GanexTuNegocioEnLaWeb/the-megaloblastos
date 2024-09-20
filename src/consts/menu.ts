@@ -8,8 +8,8 @@ const MENU = {
         },
         {
             id: "2",
-            title: "Planchas",
-            href: "/planchas",
+            title: "Plancha",
+            href: "/plancha",
             icon: "ri-user-2-line text-2xl"
         }
     ],
