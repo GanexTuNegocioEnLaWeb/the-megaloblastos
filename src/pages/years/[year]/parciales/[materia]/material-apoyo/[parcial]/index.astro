@@ -12,6 +12,7 @@ const reWrite = {
     2: "Nro 2",
     3: "Nro 3",
 }
+
 const materialSupports = await db.select().from(SupportMaterials).where(and(eq(SupportMaterials.year, Number(year)),eq(SupportMaterials.materia, materia),eq(SupportMaterials.parcial, Number(parcial)))).all()
 
 ---
