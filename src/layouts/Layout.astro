@@ -32,6 +32,15 @@ const currentPath = Astro.url.pathname;
 		<link rel="icon" type="image/svg+xml" href="/megaloblastos.png" />
 		<title>{title}</title>
 		<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+		<!-- Google tag (gtag.js) -->
+		<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-8Q8S3XMSJX"></script>
+		<script is:inline>
+ 			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'G-8Q8S3XMSJX');
+		</script>
 	</head>
 	<body class="bg-neutral-50 dark:bg-neutral-800">
 		<LoadLogo />
