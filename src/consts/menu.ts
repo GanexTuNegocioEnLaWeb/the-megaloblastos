@@ -5,6 +5,12 @@ const MENU = {
             title: "Auxiliares",
             href: "/auxiliares",
             icon: "ri-presentation-line text-2xl"
+        },
+        {
+            id: "2",
+            title: "Planchas",
+            href: "/planchas",
+            icon: "ri-user-2-line text-2xl"
         }
     ],
     contactanos: [
