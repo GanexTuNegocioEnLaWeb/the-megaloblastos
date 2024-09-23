@@ -1,0 +1,15 @@
+---
+import Layout from "@/layouts/Layout.astro"
+import FormLogin from "@/components/FormLogin.vue";
+
+// get session
+const session = Astro.cookies.get("user");
+if (session) return Astro.redirect("/admin/profile");
+---
+
+<Layout title="Perfil">
+    <section class="w-[80dvw] mx-auto max-w-2xl p-8">
+        <h2 class="text-3xl font-medium text-neutral-800 dark:text-neutral-200 uppercase pb-4">Inicia sesión</h2>
+        <FormLogin client:load />
+    </section>
+</Layout>

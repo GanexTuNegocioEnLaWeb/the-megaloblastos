@@ -1,8 +1,10 @@
 ---
-import BtnBack from "@/components/BtnBack.astro";
-import CardRecursos from "@/components/UI/CardRecursos.astro";
+import BtnBack from "@/components/UI/BtnBack.astro";
+import CardRecursos from "@/components/UI/cards/CardRecursos.astro";
 import Layout from "@/layouts/Layout.astro"
-import { SupportMaterials, db, and, eq } from "astro:db"
+import { db } from "@/db";
+import { and, eq } from "drizzle-orm";
+import { supportMaterialsTable } from "@/db/schema";
 
 // props
 // const params = Astro.params;
@@ -13,7 +15,7 @@ const reWrite = {
     3: "Nro 3",
 }
 
-const materialSupports = await db.select().from(SupportMaterials).where(and(eq(SupportMaterials.year, Number(year)),eq(SupportMaterials.materia, materia),eq(SupportMaterials.parcial, Number(parcial)))).all()
+const materialSupports = await db.select().from(supportMaterialsTable).where(and(eq(supportMaterialsTable.year, year),eq(supportMaterialsTable.subject, materia),eq(supportMaterialsTable.partial, parcial))).all()
 ---
 
 <Layout title="parciales">
@@ -37,8 +39,8 @@ const materialSupports = await db.select().from(SupportMaterials).where(and(eq(S
             {
                 materialSupports.length == 0 ? <p class="dark:text-neutral-300" data-aos="fade-up" data-aos-delay="50">
                     <span class="block">Sección vacía, pide material de apoyo a:</span>
-                    <span class="block"><a href="https://wa.link/3rgww3" target="_blank" class="py-1 px-5 bg-orange-500 rounded-md font-medium inline-block hover:bg-orange-600 my-2"><i class="ri-whatsapp-line"></i> Roy Nicolas</a></span>
-                    <span class="block"><a href="https://wa.link/jbgt9a" target="_blank" class="py-1 px-5 bg-orange-500 rounded-md font-medium inline-block hover:bg-orange-600"><i class="ri-whatsapp-line"></i> Blas Merida</a></span>
+                    <span class="block"><a href="https://wa.link/3rgww3" target="_blank" rel="noopener noreferrer" class="py-1 px-5 bg-orange-500 rounded-md font-medium inline-block hover:bg-orange-600 my-2"><i class="ri-whatsapp-line"></i> Roy Nicolas</a></span>
+                    <span class="block"><a href="https://wa.link/jbgt9a" target="_blank" rel="noopener noreferrer" class="py-1 px-5 bg-orange-500 rounded-md font-medium inline-block hover:bg-orange-600"><i class="ri-whatsapp-line"></i> Blas Merida</a></span>
                     {/* No hay material de apoyo, escribenos al <a href="#"></a> y haz tu solicitud y en breve estará disponible. */}
                 </p> :
                 materialSupports.map((material) => (

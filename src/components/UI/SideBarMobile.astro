@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
-import megaloblastosPng from '../assets/megaloblastos.png';
-import menu from '../consts/menu.ts';
+import megaloblastosPng from '@/assets/megaloblastos.png';
+import menu from '@/consts/menu';
 const currentPath = Astro.url.pathname;
 ---
 
@@ -47,7 +47,7 @@ const currentPath = Astro.url.pathname;
                     {
                         menu.contactanos.map((item) => (
                             <li>
-                                <a target="_blank" href={item.href} class={`flex items-center gap-1 py-2 px-6 rounded-md transition-all duration-200 ${currentPath === item.href ? 'bg-amber-600 text-neutral-50' : 'hover:text-neutral-50 hover:bg-neutral-600'}`}>
+                                <a target="_blank" rel="noopener noreferrer" href={item.href} class={`flex items-center gap-1 py-2 px-6 rounded-md transition-all duration-200 ${currentPath === item.href ? 'bg-amber-600 text-neutral-50' : 'hover:text-neutral-50 hover:bg-neutral-600'}`}>
                                     <i class={item.icon}></i>
                                     <span class="leading-none">{item.title}</span>
                                 </a>
@@ -63,7 +63,7 @@ const currentPath = Astro.url.pathname;
                         <i class="ri-code-s-slash-line text-xl"></i>
                         <p aria-label="text-sidebar" class="leading-none">GANEX</p>
                     </a> -->
-                    <a href="https://ganextunegocioenlaweb.com" target="_blank" aria-icon="icon" class={`flex items-center gap-1 py-2 px-6 rounded-md transition-all duration-200 ${currentPath === '/ganex' ? 'bg-amber-600 text-neutral-50' : 'hover:text-neutral-50 hover:bg-neutral-600'}`}>
+                    <a href="https://ganextunegocioenlaweb.com" target="_blank" rel="noopener noreferrer" aria-icon="icon" class={`flex items-center gap-1 py-2 px-6 rounded-md transition-all duration-200 ${currentPath === '/ganex' ? 'bg-amber-600 text-neutral-50' : 'hover:text-neutral-50 hover:bg-neutral-600'}`}>
                         <i class="ri-code-s-slash-line text-xl"></i>
                         <p aria-label="text-sidebar" class="leading-none">GANEX</p>
                     </a>

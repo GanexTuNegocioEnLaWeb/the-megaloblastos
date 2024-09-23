@@ -2,7 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import { materias } from "@/consts/db" 
 import HeaderCards from "@/components/UI/HeaderCards.astro";
-import CardMateria from "@/components/UI/CardMateria.astro";
+import CardMateria from "@/components/UI/cards/CardMateria.astro";
 // props
 const { year } = Astro.params;
 const materiasByYear = materias.filter((materia) => materia.year.toString() === year);

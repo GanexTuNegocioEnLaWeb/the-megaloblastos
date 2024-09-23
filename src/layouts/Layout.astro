@@ -1,12 +1,11 @@
 ---
 import 'remixicon/fonts/remixicon.css';
-import SideBarMobile from '../components/SideBarMobile.astro';
+import SideBarMobile from '../components/UI/SideBarMobile.astro';
 import menu from '../consts/menu';
 import Auth from '../components/UI/Auth.astro';
 import Background from '../components/UI/Background.astro';
 import { Image } from 'astro:assets';
 import megaloblastosPng from '../assets/megaloblastos.png';
-import LoadLogo from '@/components/UI/LoadLogo.astro';
 
 interface Props {
 	title: string;
@@ -38,12 +37,10 @@ const currentPath = Astro.url.pathname;
  			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
 			gtag('js', new Date());
-
 			gtag('config', 'G-8Q8S3XMSJX');
 		</script>
 	</head>
 	<body class="bg-neutral-50 dark:bg-neutral-800">
-		<LoadLogo />
 		<div id="main" class="flex items-start min-h-screen relative">
 			<div class="absolute inset-0 z-0">
 				<Background /> 
@@ -94,7 +91,7 @@ const currentPath = Astro.url.pathname;
 								{
 									menu.contactanos.map((item) => (
 										<li>
-											<a target="_blank" href={item.href} aria-icon="icon" class='flex items-center gap-1 py-2 px-6 rounded-md transition-all duration-200 hover:text-neutral-50 hover:bg-neutral-600'>
+											<a target="_blank" rel="noopener noreferrer" href={item.href} aria-icon="icon" class='flex items-center gap-1 py-2 px-6 rounded-md transition-all duration-200 hover:text-neutral-50 hover:bg-neutral-600'>
 												<i class={item.icon}></i>
 												<p aria-label="text-sidebar" class="leading-none">{item.title}</p>
 											</a>
@@ -108,7 +105,7 @@ const currentPath = Astro.url.pathname;
 								<p class="uppercase font-semibold px-6 py-2" aria-label="text-sidebar">Desarrollado por</p>
 							</li>
 							<li>
-								<a href="https://ganextunegocioenlaweb.com" target="_blank" aria-icon="icon" class={`flex items-center gap-1 py-2 px-6 rounded-md transition-all duration-200 ${currentPath === '/ganex' ? 'bg-amber-600 text-neutral-50' : 'hover:text-neutral-50 hover:bg-neutral-600'}`}>
+								<a href="https://ganextunegocioenlaweb.com" target="_blank" rel="noopener noreferrer" aria-icon="icon" class={`flex items-center gap-1 py-2 px-6 rounded-md transition-all duration-200 ${currentPath === '/ganex' ? 'bg-amber-600 text-neutral-50' : 'hover:text-neutral-50 hover:bg-neutral-600'}`}>
 									<i class="ri-code-s-slash-line text-xl"></i>
 									<p aria-label="text-sidebar" class="leading-none">GANEX</p>
 								</a>

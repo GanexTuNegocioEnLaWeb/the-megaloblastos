@@ -1,0 +1,33 @@
+---
+import BtnCloseSession from "@/components/BtnCloseSession.vue";
+import FormSupportAdd from "@/components/FormSupportAdd.vue";
+import Layout from "@/layouts/Layout.astro"
+
+// get session
+const session = Astro.cookies.get("user");
+if (!session) return Astro.redirect("/admin");
+
+// get user
+const user = JSON.parse(session.value);
+---
+
+<Layout title="Perfil">
+    <section class="w-[80dvw] mx-auto max-w-2xl py-8 md:p-8">
+        <header>
+            <h2 class="text-3xl font-medium text-neutral-800 dark:text-neutral-200 uppercase pb-4">Administración</h2>
+            <p class="text-neutral-800 dark:text-neutral-200">Bienvenido {user.username}</p>
+            <p class="text-neutral-800 dark:text-neutral-200">Email: {user.email}</p>
+            <BtnCloseSession client:load/>
+        </header>
+
+        <main class="pt-5">
+            <section>
+                <div class="flex justify-between items-center pb-4">
+                    <h3 class="text-xl font-medium text-neutral-800 dark:text-neutral-200 uppercase">Agregar Material de apoyo</h3>
+                    <!-- <a href="/admin/material" class="bg-primary py-2 px-6 rounded-md text-neutral-200 font-medium hover:bg-orange-500">Administrar</a> -->
+                </div>
+                <FormSupportAdd client:load />
+            </section>
+        </main>
+    </section>
+</Layout>

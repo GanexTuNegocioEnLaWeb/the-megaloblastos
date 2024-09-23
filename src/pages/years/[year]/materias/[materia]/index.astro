@@ -5,8 +5,8 @@ import Layout from "@/layouts/Layout.astro";
 // props
 const { materia } = Astro.params;
 import { materias } from "@/consts/db";
-import CardDocente from "@/components/UI/CardDocente.astro";
-import BtnBack from "@/components/BtnBack.astro";
+import CardDocente from "@/components/UI/cards/CardDocente.astro";
+import BtnBack from "@/components/UI/BtnBack.astro";
 const materiaFiltered = materias.filter((m) => m.name === materia);
 ---
 

@@ -1,3 +1,6 @@
-export const generateId = () => {
-    return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+export function res (type: 'error' | 'success', status: number, message: string) {
+    return new Response(JSON.stringify({ type, message }), {
+        status,
+        headers: { "Content-Type": "application/json" }
+    });
 }
