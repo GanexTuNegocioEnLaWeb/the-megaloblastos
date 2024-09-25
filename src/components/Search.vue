@@ -5,7 +5,7 @@ import { searchSuggestion } from "@/consts/seggestion";
 const search = ref("");
 const suggestions = computed(() => {
   const s = searchSuggestion
-    .filter((s) => s.includes(search.value))
+    .filter((s) => s.includes(search.value.toLowerCase()))
     .slice(0, 3);
   if (search.value.length === 0 || s.length === 0 || s[0] === search.value) {
     return [];
