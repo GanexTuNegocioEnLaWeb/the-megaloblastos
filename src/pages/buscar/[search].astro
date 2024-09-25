@@ -4,6 +4,10 @@ import { supportMaterialsTable } from "@/db/schema";
 import Layout from "@/layouts/Layout.astro";
 import { like, or } from "drizzle-orm";
 import HelpBtns from "@/components/UI/HelpBtns.astro";
+import FormSupportUpdate from "@/components/FormSupportUpdate.vue";
+
+// get session
+const session = Astro.cookies.get("user");
 
 // Obtener el parámetro de búsqueda de la URL
 const { search } = Astro.params;
@@ -63,12 +67,17 @@ await fetchResults();
                 <p class="text-neutral-800 dark:text-neutral-200">Parcial: {material.partial}</p>
                 <a
                   href={material.url}
-                  class="bg-primary mt-2 py-2 px-6 rounded-md font-medium text-neutral-50 text-center inline-block inset-x-auto hover:bg-orange-500"
+                  class="bg-primary my-2 py-2 px-6 rounded-md font-medium text-neutral-50 text-center inline-block inset-x-auto hover:bg-orange-500"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Ver Recursos
                 </a>
+                {
+                  session && (
+                    <FormSupportUpdate material={material} client:load />
+                    // <BtnSupportDelete id={material.id} client:load />
+                )}
               </li>
             ))}
             <p class="text-neutral-800 dark:text-neutral-200 font-bold text-xl">Fin.</p>
