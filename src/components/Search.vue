@@ -64,6 +64,7 @@ const handleSubmit = (data) => {
   align-items: center;
 }
 .formkit-outer {
+  min-width: 4rem;
   margin-bottom: 0px;
 }
 @media screen and (min-width: 640px) {
