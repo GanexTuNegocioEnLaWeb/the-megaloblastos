@@ -1,0 +1,78 @@
+---
+import { db } from "@/db";
+import { supportMaterialsTable } from "@/db/schema";
+import Layout from "@/layouts/Layout.astro";
+import { like, or } from "drizzle-orm";
+import HelpBtns from "@/components/UI/HelpBtns.astro";
+
+// Obtener el parámetro de búsqueda de la URL
+const { search } = Astro.params;
+
+// Estado inicial
+let results = [];
+let loading = true;
+let error = null;
+
+// Función para realizar la búsqueda
+async function fetchResults() {
+  try {
+    results = await db
+      .select()
+      .from(supportMaterialsTable)
+      .where(
+        or(
+          like(supportMaterialsTable.type, `%${search}%`),
+          like(supportMaterialsTable.subject, `%${search}%`),
+          like(supportMaterialsTable.teacher, `%${search}%`)
+        )
+      )
+      .limit(10);
+  } catch (err) {
+    console.error("err:", err);
+    error = "No se pudo realizar la búsqueda";
+  } finally {
+    loading = false;
+  }
+}
+
+await fetchResults();
+---
+
+<Layout title="Planchas">
+    <section class="w-[80dvw] mx-auto max-w-2xl py-8">
+        {loading && <p>Cargando...</p>}
+        {error && <p>{error}</p>}
+        {results.length === 0 && !loading && !error && (
+          <p class="text-xl font-bold mb-4 text-neutral-800 dark:text-neutral-200">No se encontraron materiales de apoyo para "{search}".</p>
+          <div class="dark:text-neutral-300">
+          <p>Intenta buscarlo manualmente, o contactanos para obtener ayuda.</p>
+            <HelpBtns />
+          </div>
+          <a href="/" class="py-2 px-6 rounded-md font-medium text-neutral-50 text-center inline-block inset-x-auto bg-neutral-500 hover:bg-neutral-600 mt-4">Volver a inicio</a>
+        )}
+        {results.length > 0 && (
+          <p class="text-xl font-bold mb-4 text-neutral-800 dark:text-neutral-200">Resultados para "{search}":</p>
+          <ul class="space-y-4">
+            {results.map((material) => (
+              <li class="py-6 px-8 bg-white dark:bg-neutral-800 shadow-md rounded-md">
+                <h3 class="text-ellipsis overflow-hidden text-nowrap capitalize text-2xl text-neutral-800 dark:text-neutral-200 pb-1">{material.type}</h3>
+                <hr />
+                <p class="text-neutral-800 dark:text-neutral-200 pt-1">Materia: {material.subject}</p>
+                <p class="text-neutral-800 dark:text-neutral-200">Docente: {material.teacher}</p>
+                <p class="text-neutral-800 dark:text-neutral-200">Año: {material.year}</p>
+                <p class="text-neutral-800 dark:text-neutral-200">Parcial: {material.partial}</p>
+                <a
+                  href={material.url}
+                  class="bg-primary mt-2 py-2 px-6 rounded-md font-medium text-neutral-50 text-center inline-block inset-x-auto hover:bg-orange-500"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ver Recursos
+                </a>
+              </li>
+            ))}
+            <p class="text-neutral-800 dark:text-neutral-200 font-bold text-xl">Fin.</p>
+          </ul>
+        )}
+    </section>
+</Layout>

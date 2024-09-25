@@ -5,6 +5,7 @@ import Layout from "@/layouts/Layout.astro"
 import { db } from "@/db";
 import { and, eq } from "drizzle-orm";
 import { supportMaterialsTable } from "@/db/schema";
+import HelpBtns from "@/components/UI/HelpBtns.astro";
 
 // props
 // const params = Astro.params;
@@ -37,12 +38,10 @@ const materialSupports = await db.select().from(supportMaterialsTable).where(and
         <BtnBack />
         <ul class="space-y-4 pt-5 pb-10">
             {
-                materialSupports.length == 0 ? <p class="dark:text-neutral-300" data-aos="fade-up" data-aos-delay="50">
-                    <span class="block">Sección vacía, pide material de apoyo a:</span>
-                    <span class="block"><a href="https://wa.link/3rgww3" target="_blank" rel="noopener noreferrer" class="py-1 px-5 bg-orange-500 rounded-md font-medium inline-block hover:bg-orange-600 my-2"><i class="ri-whatsapp-line"></i> Roy Nicolas</a></span>
-                    <span class="block"><a href="https://wa.link/jbgt9a" target="_blank" rel="noopener noreferrer" class="py-1 px-5 bg-orange-500 rounded-md font-medium inline-block hover:bg-orange-600"><i class="ri-whatsapp-line"></i> Blas Merida</a></span>
-                    {/* No hay material de apoyo, escribenos al <a href="#"></a> y haz tu solicitud y en breve estará disponible. */}
-                </p> :
+                materialSupports.length == 0 ? <div class="dark:text-neutral-300" data-aos="fade-up" data-aos-delay="50">
+                    <p class="block">Sección vacía, pide material de apoyo a:</p>
+                    <HelpBtns />
+                </div> :
                 materialSupports.map((material) => (
                     <CardRecursos
                         material={material}

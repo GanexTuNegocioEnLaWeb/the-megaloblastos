@@ -5,6 +5,7 @@ import EffectWrite from "@/components/UI/EffectWrite.astro";
 import megaloblastosPng from "@/assets/megaloblastos.png"
 import menu from "@/consts/menu"
 import BtnTheme from "@/components/BtnTheme.vue"
+import 'photoswipe/style.css';
 
 // Si editas esto, tambien debes editar [year].astro const yearMap
 const years = ["primer", "segundo", "tercer", "cuarto", "quinto"];
@@ -56,6 +57,44 @@ const years = ["primer", "segundo", "tercer", "cuarto", "quinto"];
             </h3>
         </a>
     ))}
-</section>
+    </section>
 
+    <h3 class="text-2xl font-bold w-[80dvw] mx-auto max-w-3xl text-neutral-600 dark:text-neutral-300 pb-10 lg:px-10">Nuestras propuestas</h3>
+    <div class="w-[80dvw] mx-auto max-w-3xl pb-10 grid grid-cols-1 md:grid-cols-2 gap-8 lg:px-10" id="my-gallery">
+        <a
+          href="/propuesta-1.jpg"
+          data-pswp-width="1131"
+          data-pswp-height="1600"
+          target="_blank"
+        >
+          <img
+            src="/propuesta-1.jpg"
+            alt="propuestas 1 megaloblastos 2024 uagrm"
+          />
+        </a>
+        <a
+          href="/propuesta-2.jpg"
+          data-pswp-width="1131"
+          data-pswp-height="1600"
+          target="_blank"
+        >
+          <img
+            src="/propuesta-2.jpg"
+            alt="propuestas 2 megaloblastos 2024 uagrm"
+          />
+        </a>
+      </div>
 </Layout>
+
+<script >
+    
+import PhotoSwipeLightbox from 'photoswipe/lightbox';
+
+const lightbox = new PhotoSwipeLightbox({
+  gallery: '#my-gallery',
+  children: 'a',
+  pswpModule: () => import('photoswipe'),
+});
+
+lightbox.init();
+</script>

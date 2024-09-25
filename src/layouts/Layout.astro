@@ -6,6 +6,7 @@ import Auth from '../components/UI/Auth.astro';
 import Background from '../components/UI/Background.astro';
 import { Image } from 'astro:assets';
 import megaloblastosPng from '../assets/megaloblastos.png';
+import Search from '@/components/Search.vue';
 
 interface Props {
 	title: string;
@@ -125,6 +126,7 @@ const currentPath = Astro.url.pathname;
 					<button id="sidebar-desktop-button" class="text-primary text-2xl font-bold hidden lg:block">
 						<i class="ri-menu-2-line"></i>
 					</button>
+					<Search client:load />
 					<Auth />
 				</header>
 				<main class="h-[100dvh] overflow-y-auto">

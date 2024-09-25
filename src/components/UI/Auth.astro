@@ -3,12 +3,12 @@
 const session = Astro.cookies.get("user");
 ---
 
-<div class="flex gap-4 text-neutral-500 dark:text-neutral-400">
+<div class="flex items-center gap-4 text-neutral-500 dark:text-neutral-400">
   {
     session ? (
-      <a href="/admin/profile" class="hover:underline leading-none hover:text-neutral-800 dark:hover:text-neutral-300">Ver Perfil	</a>
+      <a href="/admin/profile" class="hover:underline leading-none hover:text-neutral-800 dark:hover:text-neutral-300">Perfil</a>
     ) : (
-    <a href="/admin" class="hover:underline leading-none hover:text-neutral-800 dark:hover:text-neutral-300">Administrar</a>
+    <a href="/admin" class="hover:underline leading-none hover:text-neutral-800 dark:hover:text-neutral-300">Admin</a>
     )
   }
 </div>
