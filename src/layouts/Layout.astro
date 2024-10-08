@@ -20,12 +20,12 @@ const currentPath = Astro.url.pathname;
 	<head>
 		<script is:inline>
 			(() => {
-			  const savedTheme = localStorage.getItem('theme');
-			  if (savedTheme) {
-				document.documentElement.classList.toggle('dark', savedTheme === 'dark');
-			  }
+				const savedTheme = localStorage.getItem('theme');
+				if (savedTheme) {
+					document.documentElement.classList.toggle('dark', savedTheme === 'dark');
+				}
 			})();
-		 </script>
+		</script>
 		<meta charset="UTF-8" />
 		<meta name="description" content="La medicina es una ciencia de incertidumbre y un arte de probabilidad." />
 		<meta name="viewport" content="width=device-width" />
